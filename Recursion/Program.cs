@@ -8,14 +8,15 @@ Console.WriteLine("---------------RECURSION-----------------");
 //calcular exponencial
 
 
-CalculatePow(2, 5);
+CalculatePow(4, 5);
 static void CalculatePow(int n, int pot)
 {
     if (n > 0)
     {
-        int result = n * n;
-        int iterator = 1;
-        
+        var result = n * n;
+        var iterator = 2;
+        Console.WriteLine($"Temporary result is: {result}");
+
         do
         {
             result = result * n;
