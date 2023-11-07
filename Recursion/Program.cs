@@ -7,8 +7,29 @@ Console.WriteLine("---------------RECURSION-----------------");
 
 //calcular exponencial
 
+CalculateIterativeRecursive(4);
 
-CalculatePow(4, 5);
+static void CalculateIterativeRecursive(int n)
+{
+    while(n > 0)
+    {
+        int k = n * n;
+        Console.WriteLine(k);
+        CalculateIterativeRecursive(n - 1);
+        break;
+    }
+}
+
+static void CalculateIterative(int n)
+{
+    while(n > 0)
+    {
+        int k = n * n;
+        Console.WriteLine(k);
+        n--;
+    }
+}
+
 static void CalculatePow(int n, int pot)
 {
     if (n > 0)
