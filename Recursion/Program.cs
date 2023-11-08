@@ -1,22 +1,50 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Diagnostics.CodeAnalysis;
+
 Console.WriteLine("---------------RECURSION-----------------");
+
+CalculateIterativeTailRecursion(3);
 
 //-------------------CONCEPTS--------------------
 //1. A funciton that calls itself
 //2. Needs at least one base case (condition to call itself)
+//2.2. Needs to have an IF STATEMENT as the base case
 
-//calcular exponencial
-
-CalculateIterativeRecursive(4);
-
-static void CalculateIterativeRecursive(int n)
+//------------------TYPES OF RECURSION------------
+//1. Tail and Head Recursion
+static void CalculateIterativeTailRecursion(int n)
 {
-    while(n > 0)
+    //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
+     if (n > 0)
     {
         int k = n * n;
         Console.WriteLine(k);
-        CalculateIterativeRecursive(n - 1);
-        break;
+        CalculateIterativeTailRecursion(n - 1); //tail recursion - a recursion call as the last statement of the base condition
+    }
+}
+static void CalculateIterativeHeadRecursion(int n)
+{
+    //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
+     if (n > 0)
+    {
+        CalculateIterativeHeadRecursion(n - 1); // head recursion - a recursion call as the first statement of the base condition
+        int k = n * n;
+        Console.WriteLine(k);
+    }
+}
+
+
+//2. Tree Recursion
+//when a method/function calls itself two times at the same base condition (if statement)
+static void TreeRecursion(int n)
+{
+    //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
+     if (n > 0)
+    {
+        CalculateIterativeHeadRecursion(n - 1);
+        int k = n * n;
+        Console.WriteLine(k);
+        CalculateIterativeHeadRecursion(n - 1);
     }
 }
 
@@ -29,7 +57,15 @@ static void CalculateIterative(int n)
         n--;
     }
 }
-
+static void Calc(int n)
+{
+    if (n > 0)
+    {
+        var k = n*n;
+        Console.WriteLine(k);
+        Calc(n - 1);
+    }
+}
 static void CalculatePow(int n, int pot)
 {
     if (n > 0)
