@@ -28,6 +28,7 @@ static int sumOfNRecursion(int n)
     
     return sumOfNRecursion(n - 1) + n;
 }
+
 //2. Factorial of n number
 static int factorialOfNRecursion(int n)
 {

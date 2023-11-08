@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSAlgorithms", "DSAlgorithm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion", "Recursion\Recursion.csproj", "{B2719123-D18A-4FCE-84D8-052B35538B5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchingAlgorithms", "SearchingAlgorithms\SearchingAlgorithms.csproj", "{0A669970-CAA9-4871-AE06-3D7AB0607541}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B2719123-D18A-4FCE-84D8-052B35538B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2719123-D18A-4FCE-84D8-052B35538B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2719123-D18A-4FCE-84D8-052B35538B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A669970-CAA9-4871-AE06-3D7AB0607541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A669970-CAA9-4871-AE06-3D7AB0607541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A669970-CAA9-4871-AE06-3D7AB0607541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A669970-CAA9-4871-AE06-3D7AB0607541}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
