@@ -1,17 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Data;
 using System.Diagnostics.CodeAnalysis;
 
 Console.WriteLine("---------------RECURSION-----------------");
 
-CalculateIterativeTailRecursion(3);
-
+calcA(3);
 //-------------------CONCEPTS--------------------
 //1. A funciton that calls itself
 //2. Needs at least one base case (condition to call itself)
 //2.2. Needs to have an IF STATEMENT as the base case
 
 //------------------TYPES OF RECURSION------------
-//1. Tail and Head Recursion
+//1. ----------Tail and Head Recursion
 static void CalculateIterativeTailRecursion(int n)
 {
     //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
@@ -34,8 +34,8 @@ static void CalculateIterativeHeadRecursion(int n)
 }
 
 
-//2. Tree Recursion
-//when a method/function calls itself two times at the same base condition (if statement)
+//2. ----------Tree Recursion
+//2.1when a method/function calls itself two times at the same base condition (if statement)
 static void TreeRecursion(int n)
 {
     //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
@@ -47,6 +47,27 @@ static void TreeRecursion(int n)
         CalculateIterativeHeadRecursion(n - 1);
     }
 }
+
+//3. ----------Indirect Recursion
+//3.1 separate functions calling each other in a given loop/circular pattern
+//3.2 the function DOES NOT call itself. Instead, it calls other function
+static void calcA(int n)
+{
+    if(n > 0)
+    {
+        Console.WriteLine(n);
+        calcB(n - 1);
+    }
+}
+static void calcB(int n)
+{
+    if(n > 0)
+    {
+        Console.WriteLine(n);
+        calcA(n - 1);
+    }
+}
+
 
 static void CalculateIterative(int n)
 {
