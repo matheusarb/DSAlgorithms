@@ -4,7 +4,32 @@ using System.Diagnostics.CodeAnalysis;
 
 Console.WriteLine("---------------RECURSION-----------------");
 
-calcA(3);
+sumOfN(5);
+Console.WriteLine();
+Console.WriteLine("Resultado é " + sumOfNRecursion(5));
+//-------------------EXERCÍCIOS------------------
+//1. Sum of n number
+static void sumOfN(int n)
+{
+    var result = 0;
+    var iterator = 1;
+    do
+    {
+        result += iterator;
+        iterator++;
+        Console.WriteLine($"Resultado temporário é: {result}");
+    } while (iterator <= n);
+    Console.WriteLine($"Resultado é: {result}");
+}
+static int sumOfNRecursion(int n)
+{
+    Console.WriteLine("Resultado temporário é: " + n);
+    if (n == 0)
+        return 0; 
+    
+    return sumOfNRecursion(n - 1) + n;
+}
+
 //-------------------CONCEPTS--------------------
 //1. A funciton that calls itself
 //2. Needs at least one base case (condition to call itself)
