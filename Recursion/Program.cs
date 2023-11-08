@@ -4,9 +4,8 @@ using System.Diagnostics.CodeAnalysis;
 
 Console.WriteLine("---------------RECURSION-----------------");
 
-sumOfN(5);
-Console.WriteLine();
-Console.WriteLine("Resultado é " + sumOfNRecursion(5));
+Console.WriteLine(factorialOfNRecursion(5));
+factorialOfN(5);
 //-------------------EXERCÍCIOS------------------
 //1. Sum of n number
 static void sumOfN(int n)
@@ -28,6 +27,23 @@ static int sumOfNRecursion(int n)
         return 0; 
     
     return sumOfNRecursion(n - 1) + n;
+}
+//2. Factorial of n number
+static int factorialOfNRecursion(int n)
+{
+    if(n == 0)
+        return 1;
+
+    return factorialOfNRecursion(n - 1) * n;
+}
+static void factorialOfN(int n)
+{
+    var factorial = 1;
+    for(var i = 1; i <= n; i++)
+    {
+        factorial = factorial * i;
+    }
+    Console.WriteLine(factorial);
 }
 
 //-------------------CONCEPTS--------------------
