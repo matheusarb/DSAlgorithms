@@ -6,6 +6,7 @@ Console.WriteLine("---------------RECURSION-----------------");
 
 Console.WriteLine(factorialOfNRecursion(5));
 factorialOfN(5);
+
 //-------------------EXERCÍCIOS------------------
 //1. Sum of n number
 static void sumOfN(int n)
