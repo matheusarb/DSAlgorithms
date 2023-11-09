@@ -11,7 +11,7 @@ namespace SearchingAlgorithms
     {
         public int binarySearchRecursive(int[] arr, int value, int leftIndex, int rightIndex)
         {
-            if(leftIndex > rightIndex)
+            if (leftIndex > rightIndex)
             {
                 return -1;
             }
