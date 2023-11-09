@@ -1,10 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using SearchingAlgorithms;
 using System.Security.AccessControl;
 
 Console.WriteLine("-------------SEARCHING ALGORITHMS------------");
 var arr1 = new int[] { 21, 34, 47, 84, 96, 120 };
 
-var result = BS_Recursion(arr1, 17, 0, arr1.Length - 1);
+var search = new BSRecursive();
+var result = search.binarySearchRecursive(arr1, 120, 0, arr1.Length - 1);
+Console.WriteLine(result == -1 ? "O número não foi encontrado" : $"O número é: {result}");
+//var result = BS_Recursion(arr1, 17, 0, arr1.Length - 1);
 
 //------------------------- BINARY SEARCH -----------------------
 // Função do curso
