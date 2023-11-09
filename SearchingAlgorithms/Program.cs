@@ -2,12 +2,9 @@
 using System.Security.AccessControl;
 
 Console.WriteLine("-------------SEARCHING ALGORITHMS------------");
-
 var arr1 = new int[] { 21, 34, 47, 84, 96, 120 };
 
-Console.WriteLine(BinarySearch(arr1, 6, 96));
-Console.WriteLine(MyBinarySearch(arr1, 96));
-
+var result = BS_Recursion(arr1, 17, 0, arr1.Length - 1);
 
 //------------------------- BINARY SEARCH -----------------------
 // Função do curso
@@ -56,13 +53,22 @@ static int MyBinarySearch(int[] arr, int value)
     }
     return -1;
 }
-
-static void Exibir(int[] arr)
+//Usando recursão
+static int BS_Recursion(int[] arr, int value, int lIndex, int rIndex)
 {
-    foreach(var i in arr)
+    if (lIndex > rIndex)
+        return -1;
+    else
     {
-        Console.Write(i+" ");
+        var middle = (lIndex + rIndex) / 2;
+        if (value == arr[middle])
+            return arr[middle];
+        else if (value < arr[middle])
+            return BS_Recursion(arr, value, lIndex, rIndex - 1);
+        else if (value > arr[middle])
+            return BS_Recursion(arr, value, lIndex + 1, rIndex);
     }
+    return -1;
 }
 
 //-------------------------LINEAR SEACH--------------------------
@@ -99,4 +105,12 @@ static void MinhaLinearSeach(int[] arr, int value)
     }
     if (!found)
         Console.WriteLine("Não existe o valor na array informada");
+}
+
+static void Exibir(int[] arr)
+{
+    foreach(var i in arr)
+    {
+        Console.Write(i+" ");
+    }
 }
