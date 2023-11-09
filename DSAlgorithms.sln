@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSAlgorithms", "DSAlgorithms\DSAlgorithms.csproj", "{492A7B75-3913-46DD-84F2-CFD73499FAED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSAlgorithms", "DSAlgorithms\DSAlgorithms.csproj", "{492A7B75-3913-46DD-84F2-CFD73499FAED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion", "Recursion\Recursion.csproj", "{B2719123-D18A-4FCE-84D8-052B35538B5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recursion", "Recursion\Recursion.csproj", "{B2719123-D18A-4FCE-84D8-052B35538B5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchingAlgorithms", "SearchingAlgorithms\SearchingAlgorithms.csproj", "{0A669970-CAA9-4871-AE06-3D7AB0607541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchingAlgorithms", "SearchingAlgorithms\SearchingAlgorithms.csproj", "{0A669970-CAA9-4871-AE06-3D7AB0607541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingAlgorithms", "SortingAlgorithms\SortingAlgorithms.csproj", "{21A8F0BB-34A4-4354-87A4-944849BF52AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0A669970-CAA9-4871-AE06-3D7AB0607541}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A669970-CAA9-4871-AE06-3D7AB0607541}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A669970-CAA9-4871-AE06-3D7AB0607541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A8F0BB-34A4-4354-87A4-944849BF52AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A8F0BB-34A4-4354-87A4-944849BF52AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A8F0BB-34A4-4354-87A4-944849BF52AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A8F0BB-34A4-4354-87A4-944849BF52AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
