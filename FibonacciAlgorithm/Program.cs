@@ -3,7 +3,7 @@ Console.WriteLine("----------FIBONACCI---------\n");
 
 fiboSequence2(5);
 
-
+//ambas erradas eu acho
 static bool fibonacciSequence1(int n)
 {
     List<int> fibSeq = new List<int>();
@@ -25,28 +25,25 @@ static bool fibonacciSequence1(int n)
     return false;
 }
 
-static void fiboSequence2(int n)
+static void fiboSequence2(int nthTerm)
 {
-    List<int> arr = new() { };
-    int n0 = 0;
-    int n1 = 1;
+    int n1 = 0;
+    int n2 = 1;
+    int nthNumber;
 
-    if (n > 0)
-    {
-        for (var  i = 2;  i < n; i++)
+        for(int i = 0; i < nthTerm; i++)
         {
-            arr[i] = n0 + n1;
-            n0 = n1;
-            n1 = arr[i];            
+            Console.Write(n1 + " ");
+            nthNumber = n1 + n2;
+            n1 = n2;
+            n2 = nthNumber;
         }
-    }
-    Exibir(arr);
 }
 
 static void Exibir(List<int> list)
 {
     foreach (var item in list)
     {
-        Console.Write(list[item]);
+        Console.Write(list[item]+" ");
     }
 }
