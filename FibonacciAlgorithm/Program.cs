@@ -1,8 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("----------FIBONACCI---------\n");
 
-fiboSequence2(5);
+List<int> fiboSeq = new List<int>();
 
+int i = 1;
+while (i <= 50)
+{
+    if (isFibo(i))
+    {
+        fiboSeq.Add(i);
+    }
+    i++;
+}
+Exibir(fiboSeq);
+
+//fiboSequence2(5);
 //ambas erradas eu acho
 static bool fibonacciSequence1(int n)
 {
@@ -40,10 +52,22 @@ static void fiboSequence2(int nthTerm)
         }
 }
 
+//3a tentativa
+static bool isPerfSq(int n)
+{
+    var s = (int)Math.Sqrt(n);
+    return (s * s == n);
+}
+
+static bool isFibo(int n)
+{
+    return isPerfSq(5 * n * n + 4) || isPerfSq(5 * n * n - 4);
+}
+
 static void Exibir(List<int> list)
 {
     foreach (var item in list)
     {
-        Console.Write(list[item]+" ");
+        Console.Write(item+" ");
     }
 }

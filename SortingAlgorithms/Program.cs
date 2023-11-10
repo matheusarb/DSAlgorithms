@@ -6,6 +6,7 @@
 //2.    Index Based Sorting
 //{ Count Sort, Bucket Sort, Radix Sort
 
-
+//1. ---SELECTION SORT-----------
+//Escolher o menor elemento na coleção e posicioná-lo no lugar apropriado (início). o mesmo procedimento será feito com todos os elementos
 
 
