@@ -6,23 +6,32 @@
 //2.    Index Based Sorting
 //{ Count Sort, Bucket Sort, Radix Sort
 
+int[] arr = new int[5] { 2, 4, 5, 1, 7 };
+MybubbleSort(arr);
 
 //1. ----------SELECTION SORT-----------
 //Escolher o menor elemento na coleção e posicioná-lo no lugar apropriado (início). o mesmo procedimento será feito com todos os elementos
 
+static void mySelectionSort(int[] arr)
+{
+    int i, j, min, temp;
+    
+
+}
 
 //2. ----------BUBBLE SORT--------------
 //IDEIA: Compara o index atual com o index seguinte; se for menor, trocam de lugar, senão segue para a próxima comparação (n0 comparar com n1, dps n1 com n2, n2 com n3...)
-int[] arr = new int[5] {2, 4, 5, 1, 7};
-MybubbleSort(arr);
+// são necessários dois forloops para 1) iterar sobre a array toda 2) e rodar a comparação de acordo com o tamanho da array
+
+
 
 static void MybubbleSort(int[] arr)
 {
     var length = arr.Length;
     int i, j, temp;
-    for(i = 0; i < arr.Length-1; i++)
+    for(i = 0; i < arr.Length; i++)
     {
-        for(j = 0; j < arr.Length-1; j++)
+        for(j = 0; j < arr.Length; j++)
         {
             if (arr[j] > arr[j + 1])
             {
