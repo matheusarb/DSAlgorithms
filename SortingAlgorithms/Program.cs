@@ -6,7 +6,7 @@
 //2.    Index Based Sorting
 //{ Count Sort, Bucket Sort, Radix Sort
 
-int[] arr = new int[5] { 2, 4, 5, 1, 7 };
+int[] arr = { 2, 4, 5, 1, 7 };
 MybubbleSort(arr);
 
 //1. ----------SELECTION SORT-----------
@@ -14,9 +14,18 @@ MybubbleSort(arr);
 
 static void mySelectionSort(int[] arr)
 {
-    int i, j, min, temp;
-    
+    int i, j, minValue, temp, length;
+    length = arr.Length;
+    for (i = 0; i < length - 1; i++)
+    {
+        minValue = i;
+        temp = arr[i];
 
+        for (j = i + 1; j < length; j++)
+        {
+
+        }
+    }
 }
 
 //2. ----------BUBBLE SORT--------------
