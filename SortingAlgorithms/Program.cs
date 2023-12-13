@@ -7,6 +7,7 @@
 //{ Count Sort, Bucket Sort, Radix Sort
 
 int[] arr = { 7, 2, 18, 9, 32 };
+List<int> list = new List<int>(){ 4, 19, 2, 1, 7 };
 MybubbleSort(arr);
 
 //1. ----------SELECTION SORT-----------
@@ -52,6 +53,30 @@ static void MybubbleSort(int[] arr)
 }
 
 //3.----------INSERTION SORT-----------
+//assumimos que o elemento da primeira posição do array está "ordenado"
+//incompleto
+static void MyInsertionSort(List<int> arr)
+{
+    for(var i = 0; i < arr.Count - 1; i++)
+    {
+        if (arr[i] < arr[0])
+        {
+            arr.Insert(0, arr[i]);
+        }
+        else
+        {
+            for (var j = i+1; j < arr.Count - 1; j++)
+            {
+
+            }
+        }
+    }
+    
+}
+
+
+
+
 
 
 static void Exibir(int[] arr)
