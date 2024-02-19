@@ -12,35 +12,45 @@ Console.WriteLine("----------FIBONACCI---------\n");
 //    i++;
 //}
 
-// Exibir(fiboSeq);
+Exibir(fiboSeq(5));
 
-CreateAndCheck(5);
-
-// Create and check
-static bool CreateAndCheck(int num)
+static List<int> fiboSeq(int num)
 {
-//     int j = 0;
-//     int k = 1, l = 1;
-    var fibo = new List<int>(num);
-    fibo.Add(0);
-    fibo.Add(1);
-    fibo.Add(1);
+    var fibonnaciSeq = new List<int>();
 
-    if(num == 0 || num == 1 || num == 2)
-        return true;
+    if(num >= 1)
+        fibonnaciSeq.Add(0);
+    if(num >= 2)
+        fibonnaciSeq.Add(1);
 
-    for(var i=3; i <= num; i++)
+    for(int index = 2; index < num+5; index++)
     {
-        fibo[i] = fibo[i - 2] + fibo[i - 1];
-        fibo.Add(fibo[i]);
-        i++;
+        int nextNum = fibonnaciSeq[index - 2] + fibonnaciSeq[index - 1];
+        fibonnaciSeq.Add(nextNum);
     }
-    
-    if(fibo.Contains(num))
-        return true;
 
-    return false;
+    return fibonnaciSeq;
 }
+
+// Create and check - WRONG
+//static bool CreateAndCheck(int num)
+//{
+//    var fibo = new List<int>(num) { 0, 1 };
+
+//    //if(num == 0 || num == 1 || num == 2)
+//    //    return true;
+
+//    for(var index=2; index <= num; index++)
+//    {
+//        int nextNum = fibo[index - 2] + fibo[index - 1];
+//        fibo.Add(nextNum);
+//    }
+    
+//    if(fibo.Contains(num))
+//        return true;
+
+//    return false;
+//}
 
 //fiboSequence2(5);
 //ambas erradas eu acho
@@ -92,10 +102,10 @@ static bool CreateAndCheck(int num)
 //     return isPerfSq(5 * n * n + 4) || isPerfSq(5 * n * n - 4);
 // }
 
-// static void Exibir(List<int> list)
-// {
-//     foreach (var item in list)
-//     {
-//         Console.Write(item+" ");
-//     }
-// }
+static void Exibir(List<int> list)
+{
+    foreach (var item in list)
+    {
+        Console.Write(item + " ");
+    }
+}
