@@ -1,32 +1,37 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("----------FIBONACCI---------\n");
 
-List<int> fiboSeq = new List<int>();
+//List<int> fiboSeq = new List<int>();
+//int i = 1;
+//while (i <= 50)
+//{
+//    // if (isFibo(i))
+//    {
+//        fiboSeq.Add(i);
+//    }
+//    i++;
+//}
 
-int i = 1;
-while (i <= 50)
-{
-    // if (isFibo(i))
-    {
-        fiboSeq.Add(i);
-    }
-    i++;
-}
 // Exibir(fiboSeq);
+
+CreateAndCheck(5);
 
 // Create and check
 static bool CreateAndCheck(int num)
 {
 //     int j = 0;
 //     int k = 1, l = 1;
-    var fibo = new List<int>{ 0, 1, 1 };
+    var fibo = new List<int>(num);
+    fibo.Add(0);
+    fibo.Add(1);
+    fibo.Add(1);
 
     if(num == 0 || num == 1 || num == 2)
         return true;
 
     for(var i=3; i <= num; i++)
     {
-        fibo[i] = fibo[i - 1] + fibo[i - 2];
+        fibo[i] = fibo[i - 2] + fibo[i - 1];
         fibo.Add(fibo[i]);
         i++;
     }
