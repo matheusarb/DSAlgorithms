@@ -10,9 +10,9 @@
 // TC - Time Complexity
 // SC - Space Complexity
 
-int[] arr = { 40, 10, 20, 30, 50 };
 int[] arr2 = { 99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0 };
-SelSort(arr);
+int[] arr = { 40, 10, 20, 30, 50 };
+MySelSort(arr);
 
 //1. ----------SELECTION SORT-----------
 //T
@@ -22,12 +22,12 @@ static void SelSort(int[] arr)
     int temp;
     var length = arr.Length;
 
-    for(var i = 0; i < length; i++)
+    for (var i = 0; i < length; i++)
     {
         var min = i;
         temp = arr[i];
 
-        for(var j = i+1; j < length; j++)
+        for (var j = i + 1; j < length; j++)
         {
             if (arr[j] < arr[min])
             {
@@ -36,6 +36,32 @@ static void SelSort(int[] arr)
         }
         arr[i] = arr[min];
         arr[min] = temp;
+    }
+
+    Exibir(arr);
+}
+
+static void MySelSort(int[] arr)
+{
+    int minVal, temp;
+    var length = arr.Length;
+
+    for (var i = 0; i < length - 1; i++)
+    {
+        //minVal segura a posição atual da array do outer loop
+        minVal = i;
+
+        for(var j = i + 1; j < length; j++)
+        {
+            if (arr[j] < arr[minVal])
+            {
+                minVal = j;
+            }
+        }
+
+        temp = arr[minVal];
+        arr[minVal] = arr[i];
+        arr[i] = temp;
     }
 
     Exibir(arr);
