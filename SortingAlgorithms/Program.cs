@@ -6,31 +6,43 @@
 //2.    Index Based Sorting
 //{ Count Sort, Bucket Sort, Radix Sort
 
-int[] arr = { 7, 18, 2, 9, 32 };
-List<int> list = new() { 4, 19, 2, 1, 7 };
-MyBubbleSort(arr);
+// LEGENDA
+// TC - Time Complexity
+// SC - Space Complexity
+
+int[] arr = { 40, 10, 20, 30, 50 };
+int[] arr2 = { 99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0 };
+SelSort(arr);
 
 //1. ----------SELECTION SORT-----------
-//Escolher o menor elemento na coleção e posicioná-lo no lugar apropriado (início). o mesmo procedimento será feito com todos os elementos
-static void mySelectionSort(int[] arr)
+//T
+//Encontrar o menor elemento na coleção e posicioná-lo no lugar apropriado (início). o mesmo procedimento será feito com todos os elementos
+static void SelSort(int[] arr)
 {
-    var arrLength = arr.Length - 1;
-    for (var i = 0; i < arrLength; i++)
+    int temp;
+    var length = arr.Length;
+
+    for(var i = 0; i < length; i++)
     {
-        for (var j = i + 1; j < arrLength; j++)
+        var min = i;
+        temp = arr[i];
+
+        for(var j = i+1; j < length; j++)
         {
-            if (arr[j] < arr[i])
+            if (arr[j] < arr[min])
             {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                min = j;
             }
         }
+        arr[i] = arr[min];
+        arr[min] = temp;
     }
+
     Exibir(arr);
 }
 
 //2. ----------BUBBLE SORT--------------
+// SC - O(1)
 //IDEIA: Compara o index atual com o index seguinte; se for menor, trocam de lugar, senão segue para a próxima comparação (n0 comparar com n1, dps n1 com n2, n2 com n3...)
 // são necessários dois forloops para 1) iterar sobre a array toda 2) e rodar a comparação de acordo com o tamanho da array
 static void MyBubbleSort(int[] arr)
@@ -38,9 +50,9 @@ static void MyBubbleSort(int[] arr)
     int j, k, temp;
     var length = arr.Length;
 
-    for (j = 0; j < length-1; j++)
+    for (j = 0; j < length; j++)
     {
-        for (k = 0; k < length-1; k++)
+        for (k = 0; k < length - 1; k++)
         {
             if (arr[k] > arr[k + 1])
             {
@@ -75,10 +87,6 @@ static void MyInsertionSort(List<int> arr)
     }
 
 }
-
-
-
-
 
 
 static void Exibir(int[] arr)
