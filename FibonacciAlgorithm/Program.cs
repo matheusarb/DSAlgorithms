@@ -12,7 +12,62 @@ Console.WriteLine("----------FIBONACCI---------\n");
 //    i++;
 //}
 
-Exibir(fiboSeq(5));
+Console.WriteLine(fibonnaci(8));
+GenerateFiboSeq(10);
+
+static void GenerateFiboSeq(int nthNum)
+{
+    List<int> fiboSeq = new () {0, 1};
+
+    int nextNum = 0;
+    for (var i = 2; i < nthNum; i++)
+    {
+        nextNum = fiboSeq[i - 1] + fiboSeq[i - 2];
+        fiboSeq.Add(nextNum);
+    }
+
+    Exibir(fiboSeq);            
+}
+
+static bool fibonnaci(int nthNum)
+{
+    List<int> fiboSeq = new();
+    if (nthNum == 0)
+    {
+        fiboSeq.Add(nthNum);
+        return true;
+    }
+    if (nthNum == 1)
+    {
+        fiboSeq.Add(nthNum);
+        return true;
+    }
+
+    fiboSeq.Add(0);
+    fiboSeq.Add(1);
+    while(true)
+    {
+        int nextNum = 0;
+        for(var i = 2; i <= nthNum; i++)
+        {
+            nextNum = fiboSeq[i-1] + fiboSeq[i-2];
+            fiboSeq.Add(nextNum);
+
+            if(nextNum == nthNum)
+            {
+                Exibir(fiboSeq);
+                return true;      
+            }
+        }
+
+        if (nextNum > nthNum)
+            break;
+        break;
+    }
+    Exibir(fiboSeq);
+
+    return false;
+}
 
 static List<int> fiboSeq(int num)
 {

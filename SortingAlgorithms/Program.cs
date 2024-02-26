@@ -12,34 +12,12 @@
 
 int[] arr2 = { 99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0 };
 int[] arr = { 40, 10, 20, 30, 50 };
-MySelSort(arr);
+//MySelSort(arr);
+
 
 //1. ----------SELECTION SORT-----------
 //T
 //Encontrar o menor elemento na coleção e posicioná-lo no lugar apropriado (início). o mesmo procedimento será feito com todos os elementos
-static void SelSort(int[] arr)
-{
-    int temp;
-    var length = arr.Length;
-
-    for (var i = 0; i < length; i++)
-    {
-        var min = i;
-        temp = arr[i];
-
-        for (var j = i + 1; j < length; j++)
-        {
-            if (arr[j] < arr[min])
-            {
-                min = j;
-            }
-        }
-        arr[i] = arr[min];
-        arr[min] = temp;
-    }
-
-    Exibir(arr);
-}
 
 static void MySelSort(int[] arr)
 {
@@ -51,7 +29,7 @@ static void MySelSort(int[] arr)
         //minVal segura a posição atual da array do outer loop
         minVal = i;
 
-        for(var j = i + 1; j < length; j++)
+        for (var j = i + 1; j < length; j++)
         {
             if (arr[j] < arr[minVal])
             {
@@ -93,9 +71,9 @@ static void MyBubbleSort(int[] arr)
 }
 
 //3.----------INSERTION SORT-----------
-//assumimos que o elemento da primeira posição do array está "ordenado"
-//incompleto
-static void MyInsertionSort(List<int> arr)
+// assumimos que o elemento da primeira posição do array está "ordenado"
+// é útil para quando a lista já está quase organizada
+static void InsertionSort(List<int> arr)
 {
     for (var i = 0; i < arr.Count - 1; i++)
     {
@@ -114,6 +92,19 @@ static void MyInsertionSort(List<int> arr)
 
 }
 
+static void MyInsertionSort(int[] arr)
+{
+    for (var i = 1; i < arr.Length; i++)
+    {
+        var key = arr[i];
+        var flag = 0;
+
+        for (var j = i - 1; j >= 0 && flag != 1;)
+        {
+
+        }
+    }
+}
 
 static void Exibir(int[] arr)
 {
