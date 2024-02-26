@@ -6,18 +6,18 @@
 //2.    Index Based Sorting
 //{ Count Sort, Bucket Sort, Radix Sort
 
-int[] arr = { 7, 2, 18, 9, 32 };
-List<int> list = new List<int>(){ 4, 19, 2, 1, 7 };
-MybubbleSort(arr);
+int[] arr = { 7, 18, 2, 9, 32 };
+List<int> list = new() { 4, 19, 2, 1, 7 };
+MyBubbleSort(arr);
 
 //1. ----------SELECTION SORT-----------
 //Escolher o menor elemento na coleção e posicioná-lo no lugar apropriado (início). o mesmo procedimento será feito com todos os elementos
 static void mySelectionSort(int[] arr)
 {
     var arrLength = arr.Length - 1;
-    for(var i = 0; i < arrLength; i++)
+    for (var i = 0; i < arrLength; i++)
     {
-        for(var j = i+1; j < arrLength; j++)
+        for (var j = i + 1; j < arrLength; j++)
         {
             if (arr[j] < arr[i])
             {
@@ -33,18 +33,20 @@ static void mySelectionSort(int[] arr)
 //2. ----------BUBBLE SORT--------------
 //IDEIA: Compara o index atual com o index seguinte; se for menor, trocam de lugar, senão segue para a próxima comparação (n0 comparar com n1, dps n1 com n2, n2 com n3...)
 // são necessários dois forloops para 1) iterar sobre a array toda 2) e rodar a comparação de acordo com o tamanho da array
-static void MybubbleSort(int[] arr)
+static void MyBubbleSort(int[] arr)
 {
-    int i, j, temp;
-    for(i = 0; i < arr.Length-1; i++)
+    int j, k, temp;
+    var length = arr.Length;
+
+    for (j = 0; j < length-1; j++)
     {
-        for(j = 0; j < arr.Length-1; j++)
+        for (k = 0; k < length-1; k++)
         {
-            if (arr[j] > arr[j + 1])
+            if (arr[k] > arr[k + 1])
             {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                temp = arr[k];
+                arr[k] = arr[k + 1];
+                arr[k + 1] = temp;
             }
         }
     }
@@ -57,7 +59,7 @@ static void MybubbleSort(int[] arr)
 //incompleto
 static void MyInsertionSort(List<int> arr)
 {
-    for(var i = 0; i < arr.Count - 1; i++)
+    for (var i = 0; i < arr.Count - 1; i++)
     {
         if (arr[i] < arr[0])
         {
@@ -65,13 +67,13 @@ static void MyInsertionSort(List<int> arr)
         }
         else
         {
-            for (var j = i+1; j < arr.Count - 1; j++)
+            for (var j = i + 1; j < arr.Count - 1; j++)
             {
 
             }
         }
     }
-    
+
 }
 
 
@@ -81,8 +83,8 @@ static void MyInsertionSort(List<int> arr)
 
 static void Exibir(int[] arr)
 {
-    foreach(int i in arr)
+    foreach (int i in arr)
     {
-        Console.Write(i+" ");
+        Console.Write(i + " ");
     }
 }

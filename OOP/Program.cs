@@ -29,14 +29,14 @@ static void DisplayAgeByName(List<Pessoa> peopleList, string name)
     var contains = false;
     foreach (var pessoa in peopleList)
     {
-        if(pessoa.Nome.ToLower() == name.ToLower())
+        if (pessoa.Nome.ToLower() == name.ToLower())
         {
-            Console.WriteLine($"Nome encontrado. O {name} possui {pessoa.Idade} anos");    
+            Console.WriteLine($"Nome encontrado. O {name} possui {pessoa.Idade} anos");
             contains = true;
         }
     }
 
-    if(contains is false)
+    if (contains is false)
     {
         Console.WriteLine("O nome informado não existe.");
     }
