@@ -37,13 +37,22 @@ static void DisplayArr(int[] arr)
 }
 
 // 2. Given an integer x, return true if x is a palindrome, and false otherwise
+Console.WriteLine(PalindromeNumber(567));
 
 static bool PalindromeNumber(int num)
 {
     string convertedNum = num.ToString();
-    var stringChars = convertedNum.Split();
+    if (convertedNum.Length <= 1)
+        return true;
 
-    if(stringChars.Reverse() == stringChars)
+    string reversed = "";
+
+    for (var i = convertedNum.Length - 1; i >= 0; i--)
+    {
+        reversed += convertedNum[i];
+    }
+
+    if (reversed == convertedNum)
         return true;
     return false;
 }
