@@ -19,7 +19,7 @@ static void GenerateFiboSeq(int nthNum)
 {
     List<int> fiboSeq = new () {0, 1};
 
-    int nextNum = 0;
+    int nextNum;
     for (var i = 2; i < nthNum; i++)
     {
         nextNum = fiboSeq[i - 1] + fiboSeq[i - 2];
