@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Reflection.Metadata.Ecma335;
+
 Console.WriteLine("LeetCode challenges:\n");
 
 // 1. Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -90,7 +92,7 @@ static bool PalindromeNumber2(int num)
 List<string> test = new() { "flower", "flow", "flight" };
 string[] test2 = { "flower", "flow", "flight" };
 
-Console.WriteLine(LCP(test2));
+//Console.WriteLine(LCP(test2));
 static string LongestCommomPrefix(List<string> strs)
 {
     List<string> sortedStrs = strs;
@@ -139,4 +141,45 @@ static string LCP(string[] strs)
     }
 
     return prefix;
+}
+
+// 4. Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+// Example 2:
+
+//Input:
+//s = "()[]{}"
+//Output:
+//true
+//Example 3:
+
+//Input:
+//s = "(]"
+//Output: false
+
+static bool isValid(string str)
+{
+    if (str.Length <= 1)
+        return false;
+
+    // 1. para cada char ([{ tem q ter o par fechando
+    for (var i = 0; i < str.Length; i++)
+    {
+        if(str[i] == '(')
+        {
+            if(!str.Contains(")"))
+                return false;
+        }
+        if(str[i] == '[')
+        {
+            if(!str.Contains("]"))
+                return false;
+        }
+        if(str[i] == '{')
+        {
+            if(!str.Contains("}"))
+                return false;
+        }
+    }
+
+    return true;
 }
