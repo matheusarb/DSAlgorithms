@@ -2,6 +2,7 @@
 Console.WriteLine("LeetCode challenges:\n");
 
 // 1. Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
 int[] arr = { 2, 7, 9, 11, 15 };
 var tg = 9;
 int[] arr2 = { 2, 5, 5, 11 };
@@ -37,8 +38,9 @@ static void DisplayArr(int[] arr)
 }
 
 // 2. Given an integer x, return true if x is a palindrome, and false otherwise
+
 //Console.WriteLine(PalindromeNumber(567));
-Console.WriteLine(PalindromeNumber2(242));
+//Console.WriteLine(PalindromeNumber2(22));
 static bool PalindromeNumber(int num)
 {
     string convertedNum = num.ToString();
@@ -60,13 +62,13 @@ static bool PalindromeNumber(int num)
 static bool PalindromeNumber2(int num)
 {
     string convNum = num.ToString();
-    if(convNum.Length <= 1)
+    if (convNum.Length <= 1)
         return true;
 
     var i = 0;
     var j = convNum.Length - 1;
 
-    while(i < j)
+    while (i < j)
     {
         if (convNum[i] != convNum[j])
             return false;
@@ -75,3 +77,43 @@ static bool PalindromeNumber2(int num)
     }
     return true;
 }
+
+// 3. Write a function to find the longest common prefix string amongst an array of strings.
+// If there is no common prefix, return an empty string "".
+
+// Example 1:
+// Input:
+// strs = ["flower", "flow", "flight"]
+// Output:
+// "fl"
+
+List<string> test = new() { "flower", "flow", "flight" };
+
+Console.WriteLine(LongestCommomPrefix(test));
+static string LongestCommomPrefix(List<string> strs)
+{
+    List<string> sortedStrs = strs;
+    sortedStrs.Sort();
+
+    var size = sortedStrs.Count;
+    bool unmatch = false;
+    var prefix = "";
+    
+    for(var i = 0; i < sortedStrs[0].Length; i++)
+    {
+        if (unmatch)
+            break;
+        
+        if(sortedStrs[0][i] == sortedStrs[size - 1][i])
+        {
+            prefix += sortedStrs[0][i];
+        }
+        else
+        {
+            unmatch = true;
+        }
+    }       
+
+    return prefix;
+}
+
