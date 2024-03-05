@@ -88,8 +88,9 @@ static bool PalindromeNumber2(int num)
 // "fl"
 
 List<string> test = new() { "flower", "flow", "flight" };
+string[] test2 = { "flower", "flow", "flight" };
 
-Console.WriteLine(LongestCommomPrefix(test));
+Console.WriteLine(LCP(test2));
 static string LongestCommomPrefix(List<string> strs)
 {
     List<string> sortedStrs = strs;
@@ -98,13 +99,13 @@ static string LongestCommomPrefix(List<string> strs)
     var size = sortedStrs.Count;
     bool unmatch = false;
     var prefix = "";
-    
-    for(var i = 0; i < sortedStrs[0].Length; i++)
+
+    for (var i = 0; i < sortedStrs[0].Length; i++)
     {
         if (unmatch)
             break;
-        
-        if(sortedStrs[0][i] == sortedStrs[size - 1][i])
+
+        if (sortedStrs[0][i] == sortedStrs[size - 1][i])
         {
             prefix += sortedStrs[0][i];
         }
@@ -112,8 +113,30 @@ static string LongestCommomPrefix(List<string> strs)
         {
             unmatch = true;
         }
-    }       
+    }
 
     return prefix;
 }
 
+static string LCP(string[] strs)
+{
+    var prefix = "";
+    if (strs.Length == 1)
+        return strs[0];
+    
+    //1. sort the array
+    string[] sortedStrs = strs;
+    Array.Sort(sortedStrs);
+    var size = sortedStrs.Length;
+
+    //2. check between first and last element
+    for (var i = 0; i < sortedStrs[0].Length; i++)
+    {
+        if (sortedStrs[0][i] == sortedStrs[size - 1][i])
+            prefix += sortedStrs[0][i];
+        else
+            break;
+    }
+
+    return prefix;
+}
