@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
 
 Console.WriteLine("LeetCode challenges:\n");
 
@@ -125,7 +126,7 @@ static string LCP(string[] strs)
     var prefix = "";
     if (strs.Length == 1)
         return strs[0];
-    
+
     //1. sort the array
     string[] sortedStrs = strs;
     Array.Sort(sortedStrs);
@@ -164,22 +165,67 @@ static bool isValid(string str)
     // 1. para cada char ([{ tem q ter o par fechando
     for (var i = 0; i < str.Length; i++)
     {
-        if(str[i] == '(')
+        if (str[i] == '(')
         {
-            if(!str.Contains(")"))
+            if (!str.Contains(")"))
                 return false;
         }
-        if(str[i] == '[')
+        if (str[i] == '[')
         {
-            if(!str.Contains("]"))
+            if (!str.Contains("]"))
                 return false;
         }
-        if(str[i] == '{')
+        if (str[i] == '{')
         {
-            if(!str.Contains("}"))
+            if (!str.Contains("}"))
                 return false;
         }
     }
 
     return true;
+}
+
+// 5. Binary algorithm
+var binaryList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+int[] arrBi = { 1, 3, 5, 7, 9 };
+bynary(arrBi, 7);
+//binarySearch(binaryList, 8);
+static void binarySearch(List<int> list, int item)
+{
+    int baixo, alto, meio;
+
+    baixo = 0;
+    alto = list.Count - 1;
+    meio = 0;
+
+    while (baixo <= alto)
+    {
+        meio = (baixo + alto) / 2;
+        var chute = list[meio];
+        if (chute == item)
+            Console.WriteLine(chute);
+        if (chute > item)
+            alto = meio - 1;
+        else
+            baixo = meio + 1;
+    }
+}
+
+static void bynary(int[] arr, int num)
+{
+    int lowest, highest;
+    lowest = 0;
+    highest = arr.Length - 1;
+
+    while (lowest <= highest)
+    {
+        var middle = (lowest + highest) / 2;
+        var guess = arr[middle];
+        if (guess == num)
+            Console.WriteLine(middle);
+        if (guess > num)
+            highest = middle - 1;
+        else
+            lowest = middle + 1;
+    }
 }
