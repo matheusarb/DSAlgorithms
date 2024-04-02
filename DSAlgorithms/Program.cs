@@ -1,10 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("DSAlgorithms no code here");
 
+// Binary Search is faster than simple search
 
 var list = new List<int> { 1, 3, 5, 7, 9, 11 };
-func(list, 1);
-static void func(List<int> list, int val)
+binarySearch(list, 1);
+static void binarySearch(List<int> list, int val)
 {
     int min, max;
     int guess = 0;
