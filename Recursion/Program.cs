@@ -50,12 +50,9 @@ static void calcularFatorial(int n)
     {
         result *= counter;
         counter++;
-        if(counter == n)
-            System.Console.Write($" {result}\n");
-        else
-            System.Console.Write($" {result} *");
+        System.Console.Write($" {result}");
     }
-    System.Console.WriteLine("resultado: " + result);
+    System.Console.WriteLine("\n resultado: " + result);
 }
 
 static int sumOfNRecursion(int n)
@@ -113,6 +110,7 @@ static void CalculateIterativeTailRecursion(int n)
         CalculateIterativeTailRecursion(n - 1); //tail recursion - a recursion call as the last statement of the base condition
     }
 }
+
 static void CalculateIterativeHeadRecursion(int n)
 {
     //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
@@ -124,6 +122,24 @@ static void CalculateIterativeHeadRecursion(int n)
     }
 }
 
+//Soma recursiva (Dividir para conquistar)
+static void soma(int[] arr)
+{
+    var count = arr.Count();
+    var iterator = 0;
+    var result = 0;
+    if(count == 0)
+        System.Console.WriteLine("Array is empty");
+    if(count == 1)
+        System.Console.WriteLine(arr[0]);
+    
+    while(iterator <= count)
+    {
+        result = 
+        iterator++;
+    }
+
+}
 
 //2. ----------Tree Recursion
 //2.1when a method/function calls itself two times at the same base condition (if statement)
@@ -169,6 +185,7 @@ static void CalculateIterative(int n)
         n--;
     }
 }
+
 static void Calc(int n)
 {
     if (n > 0)
@@ -178,6 +195,7 @@ static void Calc(int n)
         Calc(n - 1);
     }
 }
+
 static void CalculatePow(int n, int pot)
 {
     if (n > 0)
