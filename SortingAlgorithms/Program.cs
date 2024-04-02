@@ -143,29 +143,43 @@ static void MyInsertionSort(int[] arr)
 
 int[] arr3 = { 1, 5, 2, 3, 7, 6 };
 var arr4 = new List<int>{ 1, 5, 2, 3, 7, 6 };
-quickSort(arr4);
-static IEnumerable<int> quickSort(List<int> arr)
-{
-    if(arr.Count < 2)
-        return arr;
-    
-    var length = arr.Count - 1;
-    List<int> pivot = new (){ arr[0] };
 
-    var lesserThen = new List<int>(); 
-    var higherThen = new List<int>();
-    for(var i = 0; i <= length; i++)
+
+quickSort(arr3, 0, arr3.Length - 1);
+static int[] quickSort(int[] array, int leftIndex, int rightIndex)
+{
+    if(array.Length < 2)
+        return array;
+
+    // i e j serão os counters dos subarrays (menores, maiores)
+    var i = leftIndex;
+    var j = rightIndex;
+    var pivot = array[leftIndex];
+    
+    while(i <= j)
     {
-        if(arr[i] < pivot[0])
-            lesserThen.Add(arr[i]);
-        if(arr[i] > pivot[0])
-            higherThen.Add(arr[i]);
+        while(array[i] < pivot)
+            i++;
+        while(array[j] > pivot)
+            j--;
+        
+        if(i <= j)
+        {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+            i++;
+            j--;
+        }
     }
 
-    lesserThen.AddRange(pivot);
+    if(leftIndex < j)
+        quickSort(array, leftIndex, j);
+    if(i < rightIndex)
+        quickSort(array, i, rightIndex);
     
-    Exibir(lesserThen.Concat(higherThen).ToArray());
-    return quickSort(lesserThen).Concat(pivot).Concat(higherThen);
+    // Exibir(array);
+    return array;
 }
 
 static void Exibir(int[] arr)
