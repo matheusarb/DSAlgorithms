@@ -5,7 +5,7 @@ using System.Text;
 
 Console.WriteLine("---------------RECURSION-----------------");
 
-Console.WriteLine(sumFac(5));
+// Console.WriteLine(sumFac(5));
 // factorialOfN(5);
 
 //-------------------EXERCÍCIOS------------------
@@ -23,6 +23,40 @@ static void sumOfN(int n)
     Console.WriteLine($"Resultado é: {result}");
 }
 
+//1.1 Somar n números regressivamente
+// somaRegressiva(5);
+static void somaRegressiva(int n)
+{
+    int result, counter;
+    result = 0;
+    counter = 1;
+    while (counter <= n)
+    {
+        result += counter;
+        counter++;
+        System.Console.WriteLine($"Resultado temporário {result}");
+    }
+    System.Console.WriteLine($"Result final {result}");
+}
+
+//1.2 Calcular fatorial
+calcularFatorial(5);
+static void calcularFatorial(int n)
+{
+    int result, counter;
+    result = 1;
+    counter = 1;
+    while (counter <= n)
+    {
+        result *= counter;
+        counter++;
+        if(counter == n)
+            System.Console.Write($" {result}\n");
+        else
+            System.Console.Write($" {result} *");
+    }
+    System.Console.WriteLine("resultado: " + result);
+}
 
 static int sumOfNRecursion(int n)
 {
@@ -116,6 +150,7 @@ static void calcA(int n)
         calcB(n - 1);
     }
 }
+
 static void calcB(int n)
 {
     if (n > 0)
@@ -124,7 +159,6 @@ static void calcB(int n)
         calcA(n - 1);
     }
 }
-
 
 static void CalculateIterative(int n)
 {
