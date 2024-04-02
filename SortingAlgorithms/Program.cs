@@ -10,14 +10,36 @@
 // TC - Time Complexity
 // SC - Space Complexity
 
-int[] arr2 = { 99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0 };
 int[] arr = { 40, 10, 20, 30, 50 };
+int[] arr2 = { 99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0 };
+int[] arr3 = { 1, 5, 2, 3, 7, 6 };
 //MySelSort(arr);
-
+selectionSort(arr2);
 
 //1. ----------SELECTION SORT-----------
 //T
 //Encontrar o menor elemento na coleção e posicioná-lo no lugar apropriado (início). o mesmo procedimento será feito com todos os elementos
+static void selectionSort(int[] arr)
+{
+    int minimumIndex, temp;
+    var length = arr.Length - 1;
+
+    for (var i = 0; i <= length; i++)
+    {
+        minimumIndex = i;
+        for(var j = i+1; j <= length; j++)
+        {
+            if(arr[j] < arr[i])
+            {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    Exibir(arr);
+}
 
 static void MySelSort(int[] arr)
 {
