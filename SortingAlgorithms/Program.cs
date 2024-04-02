@@ -12,9 +12,8 @@
 
 int[] arr = { 40, 10, 20, 30, 50 };
 int[] arr2 = { 99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0 };
-int[] arr3 = { 1, 5, 2, 3, 7, 6 };
 //MySelSort(arr);
-selectionSort(arr2);
+// selectionSort(arr2);
 
 //1. ----------SELECTION SORT-----------
 //T
@@ -27,9 +26,9 @@ static void selectionSort(int[] arr)
     for (var i = 0; i <= length; i++)
     {
         minimumIndex = i;
-        for(var j = i+1; j <= length; j++)
+        for (var j = i + 1; j <= length; j++)
         {
-            if(arr[j] < arr[i])
+            if (arr[j] < arr[i])
             {
                 temp = arr[i];
                 arr[i] = arr[j];
@@ -126,6 +125,47 @@ static void MyInsertionSort(int[] arr)
 
         }
     }
+}
+
+//4. ------------- QUICKSORT ------------
+// Um algoritmo de organização otimizado, mais rápido do que o de seleção
+// utiliza a técnica "Dividir para conquistar" e é um bom exemplo de programação elegante
+// algoritmos DC são recursivos
+// Descubra o caso-base, que deve ser o caso mais simples possível
+// divida ou diminua o problema até que ele se torne o caso-base
+// Velocidade depende do pivô escolhido
+// Como executar o quicksort:
+    // 1. particione o array em subarrays
+        // 1.1. Escolha um elemento pivô (pode ser qualquer um do array)
+        // 1.2. Depois divida os elementos restantes em dois arrays; um contendo os números menores que o pivô e o outro contendo os maiores
+    // 2. Chame recursivamente a função para os outros dois arrays para ordená-los
+    // 3. Juntes todos os arrays na ordem
+
+int[] arr3 = { 1, 5, 2, 3, 7, 6 };
+var arr4 = new List<int>{ 1, 5, 2, 3, 7, 6 };
+quickSort(arr4);
+static IEnumerable<int> quickSort(List<int> arr)
+{
+    if(arr.Count < 2)
+        return arr;
+    
+    var length = arr.Count - 1;
+    List<int> pivot = new (){ arr[0] };
+
+    var lesserThen = new List<int>(); 
+    var higherThen = new List<int>();
+    for(var i = 0; i <= length; i++)
+    {
+        if(arr[i] < pivot[0])
+            lesserThen.Add(arr[i]);
+        if(arr[i] > pivot[0])
+            higherThen.Add(arr[i]);
+    }
+
+    lesserThen.AddRange(pivot);
+    
+    Exibir(lesserThen.Concat(higherThen).ToArray());
+    return quickSort(lesserThen).Concat(pivot).Concat(higherThen);
 }
 
 static void Exibir(int[] arr)
