@@ -1,11 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 
 Console.WriteLine("---------------RECURSION-----------------");
 
-Console.WriteLine(factorialOfNRecursion(5));
-factorialOfN(5);
+Console.WriteLine(sumFac(5));
+// factorialOfN(5);
 
 //-------------------EXERCÍCIOS------------------
 //1. Sum of n number
@@ -21,27 +22,40 @@ static void sumOfN(int n)
     } while (iterator <= n);
     Console.WriteLine($"Resultado é: {result}");
 }
+
+
 static int sumOfNRecursion(int n)
 {
     Console.WriteLine("Resultado temporário é: " + n);
     if (n == 0)
-        return 0; 
-    
+        return 0;
+
     return sumOfNRecursion(n - 1) + n;
+}
+
+static int sumFac(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    System.Console.Write($"{n} ");
+    return sumFac(n - 1) * n;
 }
 
 //2. Factorial of n number
 static int factorialOfNRecursion(int n)
 {
-    if(n == 0)
+    if (n == 0)
         return 1;
 
     return factorialOfNRecursion(n - 1) * n;
 }
+
 static void factorialOfN(int n)
 {
     var factorial = 1;
-    for(var i = 1; i <= n; i++)
+    for (var i = 1; i <= n; i++)
     {
         factorial = factorial * i;
     }
@@ -58,7 +72,7 @@ static void factorialOfN(int n)
 static void CalculateIterativeTailRecursion(int n)
 {
     //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
-     if (n > 0)
+    if (n > 0)
     {
         int k = n * n;
         Console.WriteLine(k);
@@ -68,7 +82,7 @@ static void CalculateIterativeTailRecursion(int n)
 static void CalculateIterativeHeadRecursion(int n)
 {
     //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
-     if (n > 0)
+    if (n > 0)
     {
         CalculateIterativeHeadRecursion(n - 1); // head recursion - a recursion call as the first statement of the base condition
         int k = n * n;
@@ -82,7 +96,7 @@ static void CalculateIterativeHeadRecursion(int n)
 static void TreeRecursion(int n)
 {
     //needs a BASE CONDITION with an IF STATEMENT (MANDATORY)
-     if (n > 0)
+    if (n > 0)
     {
         CalculateIterativeHeadRecursion(n - 1);
         int k = n * n;
@@ -96,7 +110,7 @@ static void TreeRecursion(int n)
 //3.2 the function DOES NOT call itself. Instead, it calls other function
 static void calcA(int n)
 {
-    if(n > 0)
+    if (n > 0)
     {
         Console.WriteLine(n);
         calcB(n - 1);
@@ -104,7 +118,7 @@ static void calcA(int n)
 }
 static void calcB(int n)
 {
-    if(n > 0)
+    if (n > 0)
     {
         Console.WriteLine(n);
         calcA(n - 1);
@@ -114,7 +128,7 @@ static void calcB(int n)
 
 static void CalculateIterative(int n)
 {
-    while(n > 0)
+    while (n > 0)
     {
         int k = n * n;
         Console.WriteLine(k);
@@ -125,7 +139,7 @@ static void Calc(int n)
 {
     if (n > 0)
     {
-        var k = n*n;
+        var k = n * n;
         Console.WriteLine(k);
         Calc(n - 1);
     }
@@ -141,10 +155,10 @@ static void CalculatePow(int n, int pot)
         do
         {
             result = result * n;
-            iterator++;    
+            iterator++;
             Console.WriteLine($"Temporary result is: {result}");
         } while (iterator <= pot - 1);
-        
+
         Console.WriteLine($"\nPower of {n} to the power of {pot} is: {result}");
     }
     else
