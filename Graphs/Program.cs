@@ -24,8 +24,33 @@ Console.WriteLine("---GRAFOS---\n");
 
 // Exibir(mangoSellers);
 
+//5. Algoritmo de Grafo
+var grafoPessoas = new Dictionary<string, string[]>
+{
+    { "matheus", new string[] { "luiggi", "xande", "tata" } },
+    { "bob", new string[] { "anuj", "peg" } }
+};
+
+var queue = new Queue<Dictionary<string, string[]>>();
+queue.Enqueue(grafoPessoas);
+Exibir2(queue);
+
+static void Exibir2(Queue<Dictionary<string, string[]>> queue)
+{
+    foreach (var grafo in queue)
+    {
+        foreach(var dict in grafo)
+        {
+            foreach(var item in dict.Value)
+            {
+                System.Console.WriteLine($"Lista de amigos de {dict.Key} || {item} ");
+            }
+        }
+    }
+}
+
 static void Exibir(Dictionary<string, bool> dict)
 {
-    foreach(var item in dict)
+    foreach (var item in dict)
         System.Console.WriteLine($"{item.Key} | {item.Value}");
 }
