@@ -69,7 +69,9 @@ static void MySelSort(int[] arr)
 //2. ----------BUBBLE SORT--------------
 // SC - O(1)
 //IDEIA: Compara o index atual com o index seguinte; se for menor, trocam de lugar, senão segue para a próxima comparação (n0 comparar com n1, dps n1 com n2, n2 com n3...)
-// são necessários dois forloops para 1) iterar sobre a array toda 2) e rodar a comparação de acordo com o tamanho da array
+// são necessários dois forloops para:
+    // 1) iterar sobre a array toda 
+    // 2) e rodar a comparação de acordo com o tamanho da array
 static void MyBubbleSort(int[] arr)
 {
     int j, k, temp;
@@ -84,6 +86,30 @@ static void MyBubbleSort(int[] arr)
                 temp = arr[k];
                 arr[k] = arr[k + 1];
                 arr[k + 1] = temp;
+            }
+        }
+    }
+
+    Exibir(arr);
+}
+
+bubbleSort2(arr);
+
+static void bubbleSort2(int[] arr)
+{
+    if(arr.Length < 2)
+        Exibir(arr);
+    
+    for(var i = 0; i <= arr.Length - 1; i++)
+    {
+        var temp = 0;
+        for(var j = i + 1; j <= arr.Length - 1; j++)
+        {
+            if(arr[j] < arr[i])
+            {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
     }
