@@ -18,6 +18,30 @@ static string convertToHifen(string msg)
     return result.ToString();
 }
 Console.WriteLine($"{msg}\n{convertToHifen(msg)}\n");
+static void ExibirInts(List<int> list)
+{
+    foreach(var n in list)
+    {
+        if(n == list.Last())
+        {
+            System.Console.Write(n);
+            break;
+        }
+        System.Console.Write($"{n}, ");
+    }
+}
+static void ExibirStrings(List<string> list)
+{
+    foreach(var n in list)
+    {
+        if(n == list.Last())
+        {
+            System.Console.Write(n);
+            break;
+        }
+        System.Console.Write($"{n}, ");
+    }
+}
 
 // 1. If we list all the natural numbers below 10 that are multiples of 3 or 5 we get 3, 5, 6 and 9 
 // The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000
@@ -110,3 +134,66 @@ static int Fibonnaci3EvenNumbersBelow4Million()
 
         return result;
     }
+
+// 3. The prime factors of 13195 are 5 7 13 and 29
+// What is the largest prime factor of the number 600851475143
+// primeFactors(600851475143);
+static void primeFactors(long num)
+{
+    var factors = new List<int>();
+    var divisor = 2;
+
+    while(num > 1)
+    {
+        if(num % divisor == 0)
+        {
+            factors.Add(divisor);
+            num /= divisor;
+        }
+        divisor++;
+    } 
+    ExibirInts(factors);
+}
+
+// 4. Largest Palindrome Product
+// A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is
+// 9009 = 91x99
+// Find the largest palindrome made from the product of two 3 digit numbers
+largestPalindromeFromTwo3DigitsNumber();
+static void largestPalindromeFromTwo3DigitsNumber()
+{
+    var palindromeList = new List<string>();
+    
+
+   for(var i = 100; i <= 999; i++)
+   {
+        int result;
+        for(var j = 100; j <= 999; j++)
+        {
+            result = i * j;
+            
+            var palindromeNum = result.ToString();
+            var reversed = "";
+            for(var r = palindromeNum.Length-1; r >= 0; r--)
+                reversed += palindromeNum[r];
+
+            if(palindromeNum == reversed)
+                palindromeList.Add(palindromeNum);
+        }
+   } 
+
+    ExibirStrings(palindromeList);
+    // System.Console.WriteLine(palindromeList.Last());
+}
+
+// while (x <= 999 || y <= 999)
+//     {
+//         result = x * y;
+//         var palindromeNum = result.ToString();
+        
+//         if(palindromeNum == palindromeNum.Reverse().ToString())
+//             palindromeList.Add(palindromeNum);
+        
+//         x++;
+//         y++;
+//     }
