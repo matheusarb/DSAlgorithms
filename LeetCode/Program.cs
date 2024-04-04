@@ -186,9 +186,9 @@ static bool isValid(string str)
 }
 
 // 5. Binary algorithm
-var binaryList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-int[] arrBi = { 1, 3, 5, 7, 9 };
-bynary(arrBi, 7);
+// var binaryList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+// int[] arrBi = { 1, 3, 5, 7, 9 };
+// bynary(arrBi, 7);
 //binarySearch(binaryList, 8);
 static void binarySearch(List<int> list, int item)
 {
@@ -228,4 +228,91 @@ static void bynary(int[] arr, int num)
         else
             lowest = middle + 1;
     }
+}
+
+//6. Romano para inteiros. Dado um algarismo romano, converta para inteiro
+romanToInteger2("MCMXCIF");
+static void romanToInteger(string str)
+{
+    static int value(char r)
+    {
+        var res = 0;
+        switch (r)
+        {
+            case 'I':
+                res = 1;
+                break;
+            case 'V':
+                res = 5;
+                break;
+            case 'X':
+                res = 10;
+                break;
+            case 'L':
+                res = 50;
+                break;
+            case 'C':
+                res = 100;
+                break;
+            case 'D':
+                res = 500;
+                break;
+            case 'M':
+                res = 1000;
+                break; ;
+        }
+        return res;
+    }
+
+    var res = 0;
+    for (var i = 0; i <= str.Length - 1; i++)
+    {
+        int s1 = value(str[i]);
+
+        if (i + 1 < str.Length)
+        {
+            int s2 = value(str[i + 1]);
+
+            if (s1 >= s2)
+            {
+                res = res + s2 - s1;
+                i++;
+            }
+        }
+        else
+        {
+            res = res + s1;
+            i++;
+        }
+    }
+    System.Console.WriteLine(res);
+}
+
+static void romanToInteger2(string str)
+{
+    var romanDict = new Dictionary<char, int>
+    {
+        {'I', 1},
+        {'V', 5},
+        {'X', 10},
+        {'L', 50},
+        {'C', 100},
+        {'D', 500},
+        {'M', 1000}
+    };
+
+    int result = 0;
+    int prevValue = 0;
+    
+    for(var i = str.Length - 1; i >= 0; i--)
+    {
+        int currValue = romanDict[str[i]];
+        
+        if(currValue < prevValue)
+            result -= currValue;
+        else
+            result += currValue;
+        prevValue = currValue;
+    }
+    System.Console.WriteLine(result);
 }
