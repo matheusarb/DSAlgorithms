@@ -104,7 +104,7 @@ var arr10 = new int[] { 5, 2, 1, 7, 10, 3, 22, 18, 16 };
 // bubbleSort3(arr10);
 static void bubbleSort3(int[] arr)
 {
-    if(arr.Length < 2)
+    if (arr.Length < 2)
     {
         Exibir(arr);
         return;
@@ -114,7 +114,7 @@ static void bubbleSort3(int[] arr)
     {
         int temp = 0;
 
-        for(var j = i + 1; j <= arr.Length - 1; j++)
+        for (var j = i + 1; j <= arr.Length - 1; j++)
         {
             if (arr[i] > arr[j])
             {
@@ -124,7 +124,7 @@ static void bubbleSort3(int[] arr)
             }
         }
     }
-    
+
     Exibir(arr);
 }
 
@@ -149,9 +149,30 @@ static void bubbleSort2(int[] arr)
 
     Exibir(arr);
 }
+
 //3.----------INSERTION SORT-----------
 // assumimos que o elemento da primeira posição do array está "ordenado"
 // é útil para quando a lista já está quase organizada
+// 3.1. Começamos percorrendo o array pelo segundo elemento
+// MyInsertionSort(arr10);
+static void MyInsertionSort(int[] arr)
+{
+    for (var i = 1; i <= arr.Length - 1; i++)
+    {
+        var key = arr[i];
+        var j = i - 1;
+
+        while (j >= 0 && arr[j] > key)
+        {
+            arr[j + 1] = arr[j];
+            j -= 1;
+        }
+
+        arr[j + 1] = key;
+    }
+    Exibir(arr);
+}
+
 static void InsertionSort(List<int> arr)
 {
     for (var i = 0; i < arr.Count - 1; i++)
@@ -168,22 +189,8 @@ static void InsertionSort(List<int> arr)
             }
         }
     }
-
 }
 
-static void MyInsertionSort(int[] arr)
-{
-    for (var i = 1; i < arr.Length; i++)
-    {
-        var key = arr[i];
-        var flag = 0;
-
-        for (var j = i - 1; j >= 0 && flag != 1;)
-        {
-
-        }
-    }
-}
 
 //4. ------------- QUICKSORT ------------
 // Um algoritmo de organização otimizado, mais rápido do que o de seleção
