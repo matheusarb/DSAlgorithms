@@ -34,6 +34,33 @@ static int BinarySearch(int[] Arr, int ALength, int Key)
     }
     return -1;
 }
+
+binarySearch3(arr1, 120);
+static void binarySearch3(int[] arr, int val)
+{
+    int left, right, middle, guess = 0;
+
+    left = 0;
+    right = arr.Length - 1;
+
+    while(guess != val)
+    {
+        middle = (left + right) / 2;
+        guess = arr[middle];
+        
+        if(guess == val)
+        {
+            System.Console.WriteLine($"Valor encontrado: {guess}");
+            break;
+        }
+
+        if(guess > val)
+            right = middle - 1;
+        if(guess < val)
+            left = middle + 1;
+    }
+}
+
 // Minha função
 static int MyBinarySearch(int[] arr, int value)
 {
@@ -112,7 +139,7 @@ static void MinhaLinearSeach(int[] arr, int value)
         Console.WriteLine("Não existe o valor na array informada");
 }
 
-static void ExibirArray(int[] arr)
+static void Exibir(int[] arr)
 {
     foreach(var i in arr)
     {
