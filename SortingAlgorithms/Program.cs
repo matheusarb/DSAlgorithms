@@ -17,7 +17,13 @@ int[] arr2 = { 99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0 };
 
 //1. ----------SELECTION SORT-----------
 //T
-//Encontrar o menor elemento na coleção e posicioná-lo no lugar apropriado (início). o mesmo procedimento será feito com todos os elementos
+//Encontrar o menor elemento na coleção e posicioná-lo no lugar apropriado (início).
+// o mesmo procedimento será feito com todos os elementos
+static void selectionSort2(int[] arr)
+{
+
+}
+
 static void selectionSort(int[] arr)
 {
     int minimumIndex, temp;
@@ -70,8 +76,9 @@ static void MySelSort(int[] arr)
 // SC - O(1)
 //IDEIA: Compara o index atual com o index seguinte; se for menor, trocam de lugar, senão segue para a próxima comparação (n0 comparar com n1, dps n1 com n2, n2 com n3...)
 // são necessários dois forloops para:
-    // 1) iterar sobre a array toda 
-    // 2) e rodar a comparação de acordo com o tamanho da array
+// 1) iterar sobre a array no outer loop
+// 2) iterar novamente para comparar com os elementos seguintes
+// 3) sempre trocar de lugar se o valor de qualquer dos itens seguintes for menor que o do index atual
 static void MyBubbleSort(int[] arr)
 {
     int j, k, temp;
@@ -93,19 +100,45 @@ static void MyBubbleSort(int[] arr)
     Exibir(arr);
 }
 
-bubbleSort2(arr);
+var arr10 = new int[] { 5, 2, 1, 7, 10, 3, 22, 18, 16 };
+// bubbleSort3(arr10);
+static void bubbleSort3(int[] arr)
+{
+    if(arr.Length < 2)
+    {
+        Exibir(arr);
+        return;
+    }
+
+    for (var i = 0; i <= arr.Length - 1; i++)
+    {
+        int temp = 0;
+
+        for(var j = i + 1; j <= arr.Length - 1; j++)
+        {
+            if (arr[i] > arr[j])
+            {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    
+    Exibir(arr);
+}
 
 static void bubbleSort2(int[] arr)
 {
-    if(arr.Length < 2)
+    if (arr.Length < 2)
         Exibir(arr);
-    
-    for(var i = 0; i <= arr.Length - 1; i++)
+
+    for (var i = 0; i <= arr.Length - 1; i++)
     {
         var temp = 0;
-        for(var j = i + 1; j <= arr.Length - 1; j++)
+        for (var j = i + 1; j <= arr.Length - 1; j++)
         {
-            if(arr[j] < arr[i])
+            if (arr[j] < arr[i])
             {
                 temp = arr[i];
                 arr[i] = arr[j];
@@ -116,7 +149,6 @@ static void bubbleSort2(int[] arr)
 
     Exibir(arr);
 }
-
 //3.----------INSERTION SORT-----------
 // assumimos que o elemento da primeira posição do array está "ordenado"
 // é útil para quando a lista já está quase organizada
@@ -161,35 +193,35 @@ static void MyInsertionSort(int[] arr)
 // divida ou diminua o problema até que ele se torne o caso-base
 // Velocidade depende do pivô escolhido
 // Como executar o quicksort:
-    // 1. particione o array em subarrays
-        // 1.1. Escolha um elemento pivô (pode ser qualquer um do array)
-        // 1.2. Depois divida os elementos restantes em dois arrays; um contendo os números menores que o pivô e o outro contendo os maiores
-    // 2. Chame recursivamente a função para os outros dois arrays para ordená-los
-    // 3. Juntes todos os arrays na ordem
+// 1. particione o array em subarrays
+// 1.1. Escolha um elemento pivô (pode ser qualquer um do array)
+// 1.2. Depois divida os elementos restantes em dois arrays; um contendo os números menores que o pivô e o outro contendo os maiores
+// 2. Chame recursivamente a função para os outros dois arrays para ordená-los
+// 3. Juntes todos os arrays na ordem
 
 int[] arr3 = { 1, 5, 2, 3, 7, 6 };
-var arr4 = new List<int>{ 1, 5, 2, 3, 7, 6 };
+var arr4 = new List<int> { 1, 5, 2, 3, 7, 6 };
 
 
 quickSort(arr3, 0, arr3.Length - 1);
 static int[] quickSort(int[] array, int leftIndex, int rightIndex)
 {
-    if(array.Length < 2)
+    if (array.Length < 2)
         return array;
 
     // i e j serão os counters dos subarrays (menores, maiores)
     var i = leftIndex;
     var j = rightIndex;
     var pivot = array[leftIndex];
-    
-    while(i <= j)
+
+    while (i <= j)
     {
-        while(array[i] < pivot)
+        while (array[i] < pivot)
             i++;
-        while(array[j] > pivot)
+        while (array[j] > pivot)
             j--;
-        
-        if(i <= j)
+
+        if (i <= j)
         {
             int temp = array[i];
             array[i] = array[j];
@@ -199,11 +231,11 @@ static int[] quickSort(int[] array, int leftIndex, int rightIndex)
         }
     }
 
-    if(leftIndex < j)
+    if (leftIndex < j)
         quickSort(array, leftIndex, j);
-    if(i < rightIndex)
+    if (i < rightIndex)
         quickSort(array, i, rightIndex);
-    
+
     // Exibir(array);
     return array;
 }
