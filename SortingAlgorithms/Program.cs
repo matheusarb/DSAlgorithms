@@ -209,7 +209,6 @@ static void InsertionSort(List<int> arr)
 int[] arr3 = { 1, 5, 2, 3, 7, 6 };
 var arr4 = new List<int> { 1, 5, 2, 3, 7, 6 };
 
-
 quickSort(arr3, 0, arr3.Length - 1);
 static int[] quickSort(int[] array, int leftIndex, int rightIndex)
 {
@@ -246,6 +245,10 @@ static int[] quickSort(int[] array, int leftIndex, int rightIndex)
     // Exibir(array);
     return array;
 }
+
+// 5. --------------- MERGE SORT -----------------
+// 5.1. Verifica se a array possui mais de 1 elemento
+// 5.2. Divide a array em duas 
 
 static void Exibir(int[] arr)
 {
