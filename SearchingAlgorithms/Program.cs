@@ -35,7 +35,7 @@ static int BinarySearch(int[] Arr, int ALength, int Key)
     return -1;
 }
 
-binarySearch3(arr1, 120);
+// binarySearch3(arr1, 120);
 static void binarySearch3(int[] arr, int val)
 {
     int left, right, middle, guess = 0;
@@ -43,7 +43,7 @@ static void binarySearch3(int[] arr, int val)
     left = 0;
     right = arr.Length - 1;
 
-    while(guess != val)
+    while(left <= right)
     {
         middle = (left + right) / 2;
         guess = arr[middle];
@@ -85,6 +85,7 @@ static int MyBinarySearch(int[] arr, int value)
     }
     return -1;
 }
+
 //Usando recursão
 static int BS_Recursion(int[] arr, int value, int lIndex, int rIndex)
 {
