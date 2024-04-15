@@ -12,8 +12,8 @@ Console.WriteLine("----------FIBONACCI---------\n");
 //    i++;
 //}
 
-Console.WriteLine(fibonnaci(8));
-GenerateFiboSeq(10);
+// Console.WriteLine(fibonnaci(8));
+// GenerateFiboSeq(10);
 
 static void GenerateFiboSeq(int nthNum)
 {
@@ -156,6 +156,40 @@ static List<int> fiboSeq(int num)
 // {
 //     return isPerfSq(5 * n * n + 4) || isPerfSq(5 * n * n - 4);
 // }
+
+FiboSeq3(1);
+
+static void FiboSeq3(int targetedNum)
+{
+    var fibonnaciSequence = new List<int>{0, 1};
+    if(targetedNum == 0 || targetedNum == 1)
+    {
+        Exibir(fibonnaciSequence);
+        System.Console.WriteLine($"\nO nº atual {targetedNum} faz parte da sequência");
+        return;
+
+    }
+    int prevNum = 0;
+    int currNum = 1;
+
+    while(currNum <= targetedNum)
+    {
+        if(currNum == targetedNum)
+        {
+            Exibir(fibonnaciSequence);
+            System.Console.WriteLine($"\nO nº atual {targetedNum} faz parte da sequência");
+            return;
+        }
+        int temp;
+        temp = prevNum;
+        prevNum = currNum;
+        currNum = temp + currNum;
+        fibonnaciSequence.Add(currNum);
+    }
+    Exibir(fibonnaciSequence);
+    System.Console.WriteLine($"\nO nº {targetedNum} não faz parte da sequência");
+}
+
 
 static void Exibir(List<int> list)
 {
